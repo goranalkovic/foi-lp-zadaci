@@ -133,16 +133,15 @@ no
 
 ### Rješenje
 
-(😂)
-
 ```Prolog
-dan_u_tjednu(1, pon).
-dan_u_tjednu(2, uto).
-dan_u_tjednu(3, sri).
-dan_u_tjednu(4, cet).
-dan_u_tjednu(5, pet).
-dan_u_tjednu(6, sub).
-dan_u_tjednu(7, ned).
+pretraga(1, Trazeni, [Trazeni|_]).
+
+pretraga(Broj, Trazeni, [_|R]) :-
+   pretraga(Prethodni, Trazeni, R),
+   Broj is Prethodni + 1.
+
+dan_u_tjednu(Broj, Dan) :-
+    pretraga(Broj, Dan, [pon,uto,sri,cet,pet,sub,ned]).
 ```
 
 ## Zadatak 5
