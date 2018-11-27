@@ -177,9 +177,9 @@ no
 ### Rješenje
 
 ```Prolog
-podlista([],L).
+podlista([], L).
 podlista([G|R1], [G|R2]) :- 
-	podlista(R1,R2).
+	podlista(R1, R2).
 ```
 
 ## Zadatak 6
@@ -357,7 +357,7 @@ no
 :- op(500, xfy, +++).
 :- op(600, xfx, ===).
 
-spoji([],L,L).
+spoji([], L, L).
 spoji([G|R], L, [G|R2]) :-
     spoji(R, L, R2).
 
@@ -404,7 +404,7 @@ no
 
 ```Prolog
 starosti(X, God) :-
-    findall(star(X,R), ( rodjen(X, Y), R is God - Y ), X).
+    findall(star(X, R), ( rodjen(X, Y), R is God - Y ), X).
 ```
 
 ## Zadatak 12
@@ -424,8 +424,7 @@ Pri implementaciji smiju se koristiti ugrađeni predikati.
 ### Rješenje
 
 ```Prolog
-code([],[]).
-
+code([], []).
 code([G|R], [G1|R1]) :-
     code(R, R1),
     G1 is G + 1.
@@ -433,4 +432,35 @@ code([G|R], [G1|R1]) :-
 kodiraj(In, Out) :-
     code(In, Temp),
     atom_codes(Out, Temp).
+```
+
+## Zadatak 13
+
+Bez korištenja ugrađenih predikata implementirajte predikat `prebroji/3` koji prima polje koje sadrži znakove `x` i `y`, a vraća broj `x`eva i broj `y`na.
+
+### Primjer
+
+```
+| ?- prebroji([x,x,y], X, Y).
+
+X = 2
+Y = 1
+
+no
+```
+
+### Rješenje
+
+```Prolog
+prebroji([], 0, 0).
+prebroji([G | R], X, Y):-
+    (
+        G == x 
+        ->  
+            prebroji(R, X1, Y),
+            X is X1 + 1
+        ;
+            prebroji(R, X, Y1),
+            Y is Y1 + 1
+    ).
 ```
