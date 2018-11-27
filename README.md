@@ -133,8 +133,16 @@ no
 
 ### Rješenje
 
+(😂)
+
 ```Prolog
-TODO
+dan_u_tjednu(1, pon).
+dan_u_tjednu(2, uto).
+dan_u_tjednu(3, sri).
+dan_u_tjednu(4, cet).
+dan_u_tjednu(5, pet).
+dan_u_tjednu(6, sub).
+dan_u_tjednu(7, ned).
 ```
 
 ## Zadatak 5
