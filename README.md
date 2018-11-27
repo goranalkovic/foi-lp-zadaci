@@ -328,6 +328,49 @@ mnozenje([ [P1, P2], [P3, P4] ], [ [D1, D2], [D3, D4] ], [ [R1, R2], [R3, R4] ])
 X mputa Y mjednako Z :- mnozenje(X, Y, Z).
 ```
 
+## Zadatak 11
+
+Neka je zadana sljedeća baza činjenica:
+
+```Prolog
+rodjen( ivek, 1986 ).
+rodjen( joza, 1989 ).
+rodjen( bara, 1990 ).
+rodjen( stef, 1977 ).
+```
+
+Implementirajte predikat ```starosti/2``` koji će vratiti listu oblika:
+
+```
+[star(ime,godina),...,star(ime,godina)]
+```
+
+Broj godina se izračunava u odnosu na proslijeđenu vrijednost
+
+### Primjeri
+
+```
+| ?- starosti(X,2007).
+
+X = [star(ivek,21),star(joza,18),star(bara,17),star(stef,30)];
+
+no
+```
+```
+| ?- starosti(X,1999).
+
+X = [star(ivek,13),star(joza,10),star(bara,9),star(stef,22)];
+
+no
+```
+
+### Rješenje
+
+```Prolog
+starosti(X, God) :-
+    findall(star(X,R), ( rodjen(X, Y), R is God - Y ), X).
+```
+
 ## Zadatak 12
 
 Implementirajte predikat `kodiraj/2` koji će listu znakova kodirati klasičnom Cezarovom šifrom s pomakom 1 (svakom kodu slova dodaje se broj 1).
