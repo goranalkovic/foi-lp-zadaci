@@ -34,7 +34,7 @@ no
 
 ### Rješenje
 
-```
+```Prolog
 pomnozi([], [], _).
 pomnozi([G|R], [G1|R1], Br) :-
     pomnozi(R, R1, Br),
@@ -62,7 +62,7 @@ no
 
 ### Rješenje
 
-```
+```Prolog
 zbroji_liste([], [], []).
 zbroji_liste([G|R], [G1|R1], [G2|R2]) :-
     zbroji_liste(R, R1, R2),
@@ -99,7 +99,7 @@ no
 
 ### Rješenje
 
-```
+```Prolog
 manji_od([], _, []).
 manji_od([G|R], Br, Rez) :-
     (
@@ -133,7 +133,7 @@ no
 
 ### Rješenje
 
-```
+```Prolog
 TODO
 ```
 
@@ -169,7 +169,7 @@ no
 
 ### Rješenje
 
-```
+```Prolog
 podlista([],L).
 podlista([G|R1], [G|R2]) :- 
 	podlista(R1,R2).
@@ -203,7 +203,7 @@ no
 
 ### Rješenje
 
-```
+```Prolog
 pomnozi([], 1).
 pomnozi([H|T], Rez) :- 
     number(H),    
@@ -239,7 +239,7 @@ no
 
 ### Rješenje
 
-```
+```Prolog
 :- op(500, xfx, voli).
 
 ivek voli barica.
@@ -272,7 +272,7 @@ no
 
 ### Rješenje
 
-```
+```Prolog
 :- op(500, yfx, vminus).
 :- op(600, xfx, vjednako).
 
