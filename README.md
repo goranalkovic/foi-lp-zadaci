@@ -354,7 +354,14 @@ no
 ### Rješenje
 
 ```Prolog
-TODO
+:- op(500, xfy, +++).
+:- op(600, xfx, ===).
+
+spoji([],L,L).
+spoji([G|R], L, [G|R2]) :-
+    spoji(R, L, R2).
+
+X +++ Y === Z :- spoji(X, Y, Z).
 ```
 
 ## Zadatak 11
