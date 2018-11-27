@@ -319,6 +319,9 @@ no
 ### Rješenje
 
 ```Prolog
+:- op(500, xfy, mputa).
+:- op(600, xfx, mjednako).
+
 mnozenje([ [P1, P2], [P3, P4] ], [ [D1, D2], [D3, D4] ], [ [R1, R2], [R3, R4] ]) :-
     R1 is (P1 * D1) + (P2 * D3),
     R2 is (P1 * D2) + (P2 * D4),
