@@ -464,3 +464,33 @@ prebroji([G | R], X, Y):-
             Y is Y1 + 1
     ).
 ```
+
+## Zadatak 14
+
+Bez korištenja ugrađenih predikata (osim predikata `op/3`) implementirajte operatore `sp` i `sj` koji će omogućiti zbrajanje elemenata na istoj poziciji iz oba polja.
+
+### Primjer
+
+```
+| ?- [a,v,g] sp [v,f,c] sj X.
+
+X = [a + v,v + f,g + c].
+
+no
+```
+
+### Rješenje
+
+```Prolog
+:- op(500, xfy, sp).
+:- op(600, xfx, sj).
+
+spoji([], [], []).
+spoji([G1 | R1], [G2 | R2], X):-
+    spoji(R1, R2, X1),
+    S = G1 + G2,
+    X = [S | X1].
+
+[G1 | R1] sp [G2 | R2] sj X:-
+    spoji([G1 | R1], [G2 | R2], X).
+```
