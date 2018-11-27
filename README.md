@@ -494,3 +494,51 @@ spoji([G1 | R1], [G2 | R2], X):-
 [G1 | R1] sp [G2 | R2] sj X:-
     spoji([G1 | R1], [G2 | R2], X).
 ```
+
+## Zadatak 15
+
+Bez korištenja ugrađenih predikata implementirajte predikat `zbroji/3` koji će zbrajati elemente liste jednakih duljina.
+
+### Primjer
+
+```
+| ?- zbroji([1,2,3,4], [4,3,2,1], L).
+
+  L = [5,5,5,5]
+
+  no
+```
+
+### Rješenje
+
+```Prolog
+zbroji([], [], []).
+zbroji([G|R], [G1|R1], Rez) :-
+	zbroji(R, R1, W),
+	X is G + G1,
+	Rez = [X|W].
+```
+
+## Zadatak 16
+
+Bez korištenja ugrađenih predikata implementirajte predikat `oduzmi/3` koji će oduzimati elemente liste jednakih duljina.
+
+### Primjer
+
+```
+| ?- zbroji([1,2,3,4], [4,3,2,1], L).
+
+  L = [5,5,5,5]
+
+  no
+```
+
+### Rješenje
+
+```Prolog
+zbroji([], [], []).
+zbroji([G|R], [G1|R1], Rez) :-
+	zbroji(R, R1, W),
+	X is G - G1,
+	Rez = [X|W].
+```
