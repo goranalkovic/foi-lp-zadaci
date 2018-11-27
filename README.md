@@ -504,9 +504,9 @@ Bez korištenja ugrađenih predikata implementirajte predikat `zbroji/3` koji ć
 ```
 | ?- zbroji([1,2,3,4], [4,3,2,1], L).
 
-  L = [5,5,5,5]
+L = [5,5,5,5]
 
-  no
+no
 ```
 
 ### Rješenje
@@ -526,19 +526,24 @@ Bez korištenja ugrađenih predikata implementirajte predikat `oduzmi/3` koji ć
 ### Primjer
 
 ```
-| ?- zbroji([1,2,3,4], [4,3,2,1], L).
+| ?- oduzmi([4,5,6,7], [1,2,3,4], L).
 
-  L = [5,5,5,5]
+L = [3,3,3,3];
 
-  no
+no
+```
+```
+| ?- oduzmi([1,2,3], [3,4,5,6], L).
+
+no
 ```
 
 ### Rješenje
 
 ```Prolog
-zbroji([], [], []).
-zbroji([G|R], [G1|R1], Rez) :-
-	zbroji(R, R1, W),
+oduzmi([], [], []).
+oduzmi([G|R], [G1|R1], Rez) :-
+	oduzmi(R, R1, W),
 	X is G - G1,
 	Rez = [X|W].
 ```
