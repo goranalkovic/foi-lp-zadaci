@@ -292,6 +292,41 @@ oduzmi([H1|T1], [H2|T2], [H3|T3]) :-
 
 X vminus Y vjednako Z :- oduzmi(X, Y, Z).
 ```
+## Zadatak 9
+
+Implementirajte operatore `mputa` i `mjednako` za rad s matricama dimenzije 2 te implementirajte predikat za matrično množenje.
+
+### Primjeri
+
+```
+| ?- [ [ 1, 0 ], [ 0, 1 ] ] mputa [ [ 2, 3 ], [ 4, 5 ] ] mjednako [ [ U1, U2 ], [ U3, U4 ] ].
+
+U1 = 2
+U2 = 3
+U3 = 4
+U4 = 5;
+
+no
+```
+```
+| ?- [ [ 2, 2 ], [ 3, 3 ] ] mputa [ [ 4, 4 ], [ 1, 1 ] ] mjednako U.
+
+U = [[10,10],[15,15]];
+
+no
+```
+
+### Rješenje
+
+```Prolog
+mnozenje([ [P1, P2], [P3, P4] ], [ [D1, D2], [D3, D4] ], [ [R1, R2], [R3, R4] ]) :-
+    R1 is (P1 * D1) + (P2 * D3),
+    R2 is (P1 * D2) + (P2 * D4),
+    R3 is (P3 * D1) + (P4 * D3),
+    R4 is (P3 * D2) + (P4 * D4).
+
+X mputa Y mjednako Z :- mnozenje(X, Y, Z).
+```
 
 ## Zadatak 12
 
