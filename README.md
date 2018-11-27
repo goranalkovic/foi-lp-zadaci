@@ -331,6 +331,32 @@ mnozenje([ [P1, P2], [P3, P4] ], [ [D1, D2], [D3, D4] ], [ [R1, R2], [R3, R4] ])
 X mputa Y mjednako Z :- mnozenje(X, Y, Z).
 ```
 
+## Zadatak 10
+
+Bez korištenja ugrađenih predikata (osim predikata `op/3`) implementirajte operatore `+++` i `===` koji će omogućiti spajanje (konkatenaciju) lista.
+
+### Primjeri
+
+```
+| ?- [] +++ [] === X.
+
+X = [];
+
+no
+```
+```
+| ?- [a,b,c] +++ [x,y,z] === X.
+
+X = [a,b,c,x,y,z];
+
+no
+```
+### Rješenje
+
+```Prolog
+TODO
+```
+
 ## Zadatak 11
 
 Neka je zadana sljedeća baza činjenica:
