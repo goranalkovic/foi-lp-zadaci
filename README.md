@@ -285,3 +285,31 @@ oduzmi([H1|T1], [H2|T2], [H3|T3]) :-
 
 X vminus Y vjednako Z :- oduzmi(X, Y, Z).
 ```
+
+## Zadatak 12
+
+Implementirajte predikat `kodiraj/2` koji će listu znakova kodirati klasičnom Cezarovom šifrom s pomakom 1 (svakom kodu slova dodaje se broj 1).
+
+### Primjer
+
+```
+| ?- kodiraj( "kolokvij", X ).
+
+X = lpmplwjk;
+```
+
+Pri implementaciji smiju se koristiti ugrađeni predikati.
+
+### Rješenje
+
+```Prolog
+code([],[]).
+
+code([G|R], [G1|R1]) :-
+    code(R, R1),
+    G1 is G + 1.
+
+kodiraj(In, Out) :-
+    code(In, Temp),
+    atom_codes(Out, Temp).
+```
